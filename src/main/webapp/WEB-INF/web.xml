@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>GarageGenius</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Filters -->
+    <filter>
+        <filter-name>ErrorHandlingFilter</filter-name>
+        <filter-class>com.garagegenius.filter.ErrorHandlingFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.garagegenius.filter.AuthFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>RoleFilter</filter-name>
+        <filter-class>com.garagegenius.filter.RoleFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>CsrfFilter</filter-name>
+        <filter-class>com.garagegenius.filter.CsrfFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>ErrorHandlingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/staff/*</url-pattern>
+        <url-pattern>/customer/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>RoleFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/staff/*</url-pattern>
+        <url-pattern>/customer/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>CsrfFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>com.garagegenius.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>com.garagegenius.controller.RegisterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>com.garagegenius.controller.LogoutController</servlet-class>
+    </servlet>
+
+    <!-- Admin -->
+    <servlet>
+        <servlet-name>AdminDashboard</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.AdminDashboardController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminCustomers</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.CustomerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminVehicles</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.VehicleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminServices</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.ServiceController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminJobCards</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.JobCardController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminInventory</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.InventoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminInvoices</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.InvoiceController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminReports</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.ReportController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminContacts</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.ContactAdminController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminAppointments</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.AppointmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUsers</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.AdminUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminMessages</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.AdminMessageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminOrders</servlet-name>
+        <servlet-class>com.garagegenius.controller.admin.AdminOrderController</servlet-class>
+    </servlet>
+
+    <!-- Staff -->
+    <servlet>
+        <servlet-name>StaffDashboard</servlet-name>
+        <servlet-class>com.garagegenius.controller.staff.StaffDashboardController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffJobCards</servlet-name>
+        <servlet-class>com.garagegenius.controller.staff.StaffJobCardController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffInventory</servlet-name>
+        <servlet-class>com.garagegenius.controller.staff.StaffInventoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffMessages</servlet-name>
+        <servlet-class>com.garagegenius.controller.staff.StaffMessageController</servlet-class>
+    </servlet>
+
+    <!-- Customer -->
+    <servlet>
+        <servlet-name>CustomerDashboard</servlet-name>
+        <servlet-class>com.garagegenius.controller.customer.CustomerPortalController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerInvoices</servlet-name>
+        <servlet-class>com.garagegenius.controller.customer.CustomerInvoiceController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerAppointments</servlet-name>
+        <servlet-class>com.garagegenius.controller.customer.CustomerAppointmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerHistory</servlet-name>
+        <servlet-class>com.garagegenius.controller.customer.CustomerHistoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerProfile</servlet-name>
+        <servlet-class>com.garagegenius.controller.customer.CustomerProfileController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerInventory</servlet-name>
+        <servlet-class>com.garagegenius.controller.customer.CustomerInventoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerCart</servlet-name>
+        <servlet-class>com.garagegenius.controller.customer.CartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerOrders</servlet-name>
+        <servlet-class>com.garagegenius.controller.customer.CheckoutController</servlet-class>
+    </servlet>
+
+    <!-- Public -->
+    <servlet>
+        <servlet-name>ContactController</servlet-name>
+        <servlet-class>com.garagegenius.controller.ContactController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AboutController</servlet-name>
+        <servlet-class>com.garagegenius.controller.AboutController</servlet-class>
+    </servlet>
+
+    <!-- Mappings -->
+    <servlet-mapping><servlet-name>LoginController</servlet-name><url-pattern>/login</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>RegisterController</servlet-name><url-pattern>/register</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>LogoutController</servlet-name><url-pattern>/logout</url-pattern></servlet-mapping>
+    
+    <servlet-mapping><servlet-name>AdminDashboard</servlet-name><url-pattern>/admin/dashboard</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminCustomers</servlet-name><url-pattern>/admin/customers</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminVehicles</servlet-name><url-pattern>/admin/vehicles</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminServices</servlet-name><url-pattern>/admin/services</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminJobCards</servlet-name><url-pattern>/admin/jobcards</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminInventory</servlet-name><url-pattern>/admin/inventory</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminInvoices</servlet-name><url-pattern>/admin/invoices</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminReports</servlet-name><url-pattern>/admin/reports</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminContacts</servlet-name><url-pattern>/admin/contacts</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminAppointments</servlet-name><url-pattern>/admin/appointments</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminUsers</servlet-name><url-pattern>/admin/users</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminMessages</servlet-name><url-pattern>/admin/messages</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AdminOrders</servlet-name><url-pattern>/admin/orders</url-pattern></servlet-mapping>
+
+    <servlet-mapping><servlet-name>StaffDashboard</servlet-name><url-pattern>/staff/dashboard</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>StaffJobCards</servlet-name><url-pattern>/staff/jobcards</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>StaffInventory</servlet-name><url-pattern>/staff/inventory</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>StaffMessages</servlet-name><url-pattern>/staff/messages</url-pattern></servlet-mapping>
+
+    <servlet-mapping><servlet-name>CustomerDashboard</servlet-name><url-pattern>/customer/dashboard</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>CustomerInvoices</servlet-name><url-pattern>/customer/invoices</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>CustomerAppointments</servlet-name><url-pattern>/customer/appointments</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>CustomerHistory</servlet-name><url-pattern>/customer/history</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>CustomerProfile</servlet-name><url-pattern>/customer/profile</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>CustomerInventory</servlet-name><url-pattern>/customer/inventory</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>CustomerCart</servlet-name><url-pattern>/customer/cart</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>CustomerOrders</servlet-name><url-pattern>/customer/orders</url-pattern></servlet-mapping>
+
+    <servlet-mapping><servlet-name>ContactController</servlet-name><url-pattern>/contact</url-pattern></servlet-mapping>
+    <servlet-mapping><servlet-name>AboutController</servlet-name><url-pattern>/about</url-pattern></servlet-mapping>
+
+    <!-- Error pages -->
+    <error-page><error-code>400</error-code><location>/views/public/400.jsp</location></error-page>
+    <error-page><error-code>404</error-code><location>/views/public/404.jsp</location></error-page>
+    <error-page><error-code>403</error-code><location>/views/public/403.jsp</location></error-page>
+    <error-page><error-code>500</error-code><location>/views/public/500.jsp</location></error-page>
+
+</web-app>
