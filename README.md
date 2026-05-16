@@ -59,7 +59,6 @@ These credentials match `garagegenius.sql`:
 - **Admin**: `admin@garagegenius.com` / `Admin@123`
 - **Staff**: `mike@garagegenius.com` / `Staff@123`
 - **Staff**: `sarah@garagegenius.com` / `Staff@123`
-- **Customer**: `c1@example.com` / `Customer@123` (also `c2`–`c5`)
 
 ## Role-based manual test checklist (recommended)
 
@@ -116,7 +115,3 @@ mysql -u root -p garagegenius < backup_garagegenius.sql
 ```
 
 For coursework evidence, include screenshots of the exported SQL backup file and the restored database tables in MySQL.
-
-## Testing evidence
-
-Manual smoke tests are documented in `TEST_CASES.md`. Add screenshots for the main flows when writing the final report.
