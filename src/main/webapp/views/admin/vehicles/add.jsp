@@ -1,0 +1,69 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="pageTitle" value="Add Vehicle" scope="request" />
+<jsp:include page="/views/common/header.jsp" />
+<jsp:include page="/views/common/navbar.jsp" />
+<jsp:include page="/views/common/sidebar.jsp" />
+
+<h2>Add New Vehicle</h2>
+
+<form action="${pageContext.request.contextPath}/admin/vehicles?action=create" method="POST">
+    <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
+    
+    <div>
+        <label>Customer:</label><br>
+        <select name="customerId" required>
+            <option value="">Select Customer</option>
+            <c:forEach var="c" items="${customers}">
+                <option value="${c.customerId}"><c:out value="${c.fullName}" /> (<c:out value="${c.email}" />)</option>
+            </c:forEach>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label>Company:</label><br>
+        <input type="text" name="make" required>
+    </div>
+    <br>
+    <div>
+        <label>Name (Model):</label><br>
+        <input type="text" name="model" required>
+    </div>
+    <br>
+    <div>
+        <label>Year:</label><br>
+        <input type="number" name="year" required>
+    </div>
+    <br>
+    <div>
+        <label>License Plate:</label><br>
+        <input type="text" name="licensePlate" required>
+    </div>
+    <br>
+    <div>
+        <label>Color:</label><br>
+        <input type="text" name="color">
+    </div>
+    <br>
+    <div>
+        <label>VIN Number (optional):</label><br>
+        <input type="text" name="vinNumber">
+    </div>
+    <br>
+    <div>
+        <label>Mileage:</label><br>
+        <input type="number" name="mileage" value="0" required>
+    </div>
+    <br>
+    <div>
+        <label>Fuel Type:</label><br>
+        <input type="text" name="fuelType">
+    </div>
+    <br>
+    <button type="submit">Add Vehicle</button>
+</form>
+
+<br>
+<a href="${pageContext.request.contextPath}/admin/vehicles">Cancel</a>
+
+<jsp:include page="/views/common/footer.jsp" />
