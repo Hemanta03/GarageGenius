@@ -1,9 +1,9 @@
 package com.garagegenius.service;
 
-import com.garagegenius.dao.UserDAO;
 import com.garagegenius.dao.CustomerDAO;
-import com.garagegenius.model.User;
+import com.garagegenius.dao.UserDAO;
 import com.garagegenius.model.Customer;
+import com.garagegenius.model.User;
 import com.garagegenius.util.PasswordUtil;
 import com.garagegenius.util.ValidationUtil;
 
